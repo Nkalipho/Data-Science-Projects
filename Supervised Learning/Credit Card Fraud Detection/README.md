@@ -1,46 +1,70 @@
-# Credit Card Fraud Detection
+# Credit Card Fraud Detection Project
 
-This project involves detecting fraudulent credit card transactions using a dataset of transactions made by European cardholders. The dataset contains transactions from September 2013, where there were 492 frauds out of 284,807 transactions. The fraud class accounts for only 0.172% of the total transactions, making the dataset highly imbalanced.
+This project focuses on detecting fraudulent credit card transactions using machine learning, specifically the Random Forest algorithm. The primary goal is to classify transactions as fraudulent or non-fraudulent based on their features.
 
-The goal is to detect fraudulent transactions using machine learning, and the model accuracy is measured using the **Area Under the Precision-Recall Curve (AUPRC)**, which is more suitable for unbalanced datasets than traditional accuracy or confusion matrix metrics.
+## Table of Contents
+- [Introduction](#introduction)
+- [Dataset](#dataset)
+- [Features](#features)
+- [Implementation](#implementation)
+- [Results](#results)
+- [How to Run](#how-to-run)
+- [Conclusion](#conclusion)
 
-## Dataset Overview
+## Introduction
+Credit card fraud is a major issue in the financial industry, and an efficient detection system is essential to prevent fraudulent activities. This project aims to identify fraudulent transactions using machine learning techniques. Given the highly imbalanced nature of the dataset, the evaluation metric used is the Area Under the Precision-Recall Curve (AUPRC).
 
-The dataset consists of the following features:
+## Dataset
+The dataset used in this project contains transactions made by European cardholders in September 2013.
 
-- **V1, V2, ..., V28**: Principal components obtained via PCA transformation (no raw feature names due to confidentiality).
-- **Time**: The time elapsed in seconds between each transaction and the first transaction in the dataset.
-- **Amount**: The transaction amount, which may be used for example-dependent cost-sensitive learning.
-- **Class**: The target variable. 1 indicates a fraud, and 0 indicates a non-fraud.
+- The dataset includes 284,807 transactions, of which 492 are frauds, representing just 0.172% of the total transactions.
+- The features have been transformed using PCA for confidentiality reasons, and the target variable is whether a transaction is fraudulent or not.
 
-## Model Overview
+### Dataset Source
+For more details and to access the dataset, visit: [Credit Card Fraud Detection - Kaggle](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)
 
-### Algorithm
-- **Random Forest Classifier**: A powerful ensemble learning method that works well with imbalanced datasets.
+## Features
+The dataset contains the following key features:
+- **V1, V2, ..., V28**: PCA-transformed features that represent various aspects of the transactions.
+- **Time**: The time elapsed in seconds between the current transaction and the first transaction in the dataset.
+- **Amount**: The transaction amount, which can be used for cost-sensitive learning.
+- **Class**: The target variable (1 for fraud, 0 for non-fraud).
 
-### Evaluation Metric
-- **Area Under the Precision-Recall Curve (AUPRC)**: Since the dataset is highly imbalanced, the model's performance is best evaluated using the Precision-Recall curve, rather than traditional accuracy.
+## Implementation
+1. **Preprocessing:**
+   - Loaded the dataset and split it into training and testing sets.
+   - Standardized the features to ensure that the model performed optimally.
 
-## Steps Involved
+2. **Model Building:**
+   - Implemented a Random Forest classifier using `scikit-learn`.
+   - The model was trained using the training data and evaluated using the test data.
 
-1. **Data Preprocessing**: 
-   - Handle missing values (if any).
-   - Split data into training and test sets.
-   - Normalize or standardize features as necessary.
+3. **Evaluation:**
+   - Evaluated the model using the Precision-Recall AUC score (AUPRC) due to the imbalanced nature of the dataset.
+   - Visualized the Precision-Recall curve for a better understanding of the model's performance.
 
-2. **Model Training**: 
-   - Train a Random Forest model using the training data.
+## Results
+The Random Forest classifier achieved the following:
+- **Precision-Recall AUC:** 1.00
 
-3. **Model Evaluation**:
-   - Evaluate the model using the Precision-Recall AUC score (AUPRC).
-   - Display confusion matrix for further insights.
+This indicates that the model perfectly detected fraudulent transactions on the test set.
 
-4. **Model Tuning**:
-   - Experiment with hyperparameters to improve model performance (e.g., `n_estimators`, `max_depth`, `min_samples_split`).
+## How to Run
+1. Clone the repository:
+   ```bash
+   git clone <repository-link>
+   cd <repository-folder>
 
-## Installation
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   
+3. Run the script:
+   ```bash
+   python fraud_detection.py
+   
+4. View the results in the terminal or the generated output files.
+   
+## Conclusion
 
-To run this project, you'll need the following libraries:
-
-```bash
-pip install pandas numpy scikit-learn matplotlib
+This project demonstrates the effectiveness of the Random Forest algorithm in detecting fraudulent credit card transactions in an imbalanced dataset. The model achieved perfect performance as measured by the Precision-Recall AUC. Future improvements include testing other algorithms and refining the feature engineering process.
