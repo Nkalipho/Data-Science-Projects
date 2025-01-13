@@ -48,10 +48,10 @@ The target variable is a binary label indicating whether an email is spam (`1`) 
 
 ## Results
 The Naive Bayes classifier achieved:
-- **Accuracy:** 92%
-- **Precision:** 88%
-- **Recall:** 85%
-- **F1-Score:** 86%
+- **Accuracy:** 82%
+- **Precision:** 85%
+- **Recall:** 82%
+- **F1-Score:** 82%
 
 The results demonstrate the model's effectiveness in identifying spam emails while maintaining a low false positive rate.
 
