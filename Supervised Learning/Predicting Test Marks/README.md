@@ -52,7 +52,7 @@ The dataset is synthetic and created for academic purposes. Ensure you preproces
 The best-performing model achieved:
 - **Mean Absolute Error (MAE):** 3.5
 - **Mean Squared Error (MSE):** 12.8
-- **R-squared (R²):** 0.89
+- **R-squared (R²):** 0.72
 
 These results indicate that the model provides reliable predictions for students' test marks.
 
