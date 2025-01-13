@@ -51,8 +51,8 @@ The dataset contains:
    - Assessed model performance using metrics such as R² and Mean Absolute Error (MAE).
 
 ## Results
-- **Best Model:** Gradient Boosting Machine (GBM)
-- **R² Score:** 0.89
+- **Best Model:** Simple Linear Regression
+- **R² Score:** 0.60
 - **MAE:** $12,300
 
 The model successfully captured the key factors influencing house prices and achieved high accuracy on the test dataset.
